@@ -348,13 +348,13 @@ LocalPlayer.CharacterAdded:Connect(function()
 end)
 
 
-local OthersTab = Window:NewTab("Destroy Parts")
+local OthersTab = Window:NewTab("👑Destroy Parts")
 local OthersSection = OthersTab:NewSection("👑Destroy Parts")
 
 
-OthersSection:NewButton("⚫Wyvern (FOR ALL)⚫", "", function()
-
-loadstring(game:HttpGet("https://raw.githubusercontent.com/wyvernleaker/WYVERN/main/WYVERN.lua",true))()
+OthersSection:NewSlider("💣Set Destroy Radius💣", "Set your max fps in game", 250, 1, function(Value)
+    Callback = function(Value)
+        angleSpeed = Value
 end)
 
 
