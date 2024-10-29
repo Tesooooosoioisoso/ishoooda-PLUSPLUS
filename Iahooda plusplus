@@ -1,3 +1,583 @@
+local Players = game:GetService("Players")
+local StarterGui = game:GetService("StarterGui")
+
+local playerToWatch = "BetaTesterFluxus" -- replace with the name of the player you want to watch
+
+function onPlayerAdded(player)
+ if player.Name == playerToWatch then
+  local notificationText = player.Name .. " joined the game!"
+  local thumbnailType = Enum.ThumbnailType.HeadShot
+  local thumbnailSize = Enum.ThumbnailSize.Size420x420
+  local thumbnailUrl = game:GetService("Players"):GetUserThumbnailAsync(player.UserId, thumbnailType, thumbnailSize)
+  local notificationOptions = {
+   Title = "🛠 Avtor Hub Developer",
+   Text = notificationText,
+   Duration = 5,
+   Icon = thumbnailUrl,
+  }
+  StarterGui:SetCore("SendNotification", notificationOptions)
+ end
+end
+
+Players.PlayerAdded:Connect(onPlayerAdded)
+
+
+local Players = game:GetService("Players")
+local StarterGui = game:GetService("StarterGui")
+
+local playerToWatch = "masp" -- replace with the name of the player you want to watch
+
+function onPlayerAdded(player)
+ if player.Name == playerToWatch then
+  local notificationText = player.Name .. " joined the game!"
+  local thumbnailType = Enum.ThumbnailType.HeadShot
+  local thumbnailSize = Enum.ThumbnailSize.Size420x420
+  local thumbnailUrl = game:GetService("Players"):GetUserThumbnailAsync(player.UserId, thumbnailType, thumbnailSize)
+  local notificationOptions = {
+   Title = "🛠 Avtor Hub Developer",
+   Text = notificationText,
+   Duration = 5,
+   Icon = thumbnailUrl,
+  }
+  StarterGui:SetCore("SendNotification", notificationOptions)
+ end
+end
+
+Players.PlayerAdded:Connect(onPlayerAdded)
+
+
+
+loadstring(game:HttpGet("https://pastebin.com/raw/1CqkFrh5"))()
+
+local guiyyy = Instance.new("ScreenGui")
+local TweenService = game:GetService("TweenService")
+  guiyyy.Name = "LoadScreen"
+  guiyyy.Parent = game.CoreGui
+
+  local loadscreen = Instance.new("ImageLabel", guiyyy)
+  Instance.new("UICorner", loadscreen)
+   
+  local label = Instance.new("TextLabel", guiyyy) 
+  label.Size = UDim2.new(0.233,0,0.075,0)
+  label.Position = UDim2.new(0.5,0,0.740,0)
+  label.BackgroundTransparency = 1
+  label.TextTransparency = 1
+  label.AnchorPoint = Vector2.new(0.5,0.5)
+  label.Text = "Avtor Hub"
+  label.TextScaled = true
+  label.Font = Enum.Font.Gotham
+  label.TextColor3 = Color3.fromRGB(255, 255, 255)
+  
+  loadscreen.UICorner.CornerRadius = UDim.new(0.125,0)
+  loadscreen.Size = UDim2.new(0.233,0,0.4,0)
+  loadscreen.Image = "http://www.roblox.com/asset/?id=17527774293"
+  loadscreen.Position = UDim2.new(0.5,0,0.5,0)
+  loadscreen.AnchorPoint = Vector2.new(0.5,0.5)
+  loadscreen.BorderSizePixel = 0
+  loadscreen.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+  loadscreen.ImageTransparency = 1
+  loadscreen.BackgroundTransparency = 1
+
+  task.wait(0.5)
+
+  TweenService:Create(loadscreen, TweenInfo.new(1.5), {ImageTransparency = 0, BackgroundTransparency = 0}):Play()
+  TweenService:Create(label, TweenInfo.new(1.5), {TextTransparency = 0}):Play()
+  task.wait(3)
+  TweenService:Create(loadscreen, TweenInfo.new(1.5), {ImageTransparency = 1, BackgroundTransparency = 1}):Play()
+  TweenService:Create(label, TweenInfo.new(1.5), {TextTransparency = 1}):Play()
+  task.wait(1.5)
+  guiyyy:Destroy()
+
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Tesooooosoioisoso/ISHOOODDDA/main/ISHOOODDDA"))()
+ 
+local Window = Library.CreateLib("💎Avtor Hub ++💎", "LightTheme")
+ 
+ 
+local PlrTab = Window:NewTab("Main")
+local PlrSection = PlrTab:NewSection("Main")
+
+PlrSection:NewSlider("🔋Set Fps Ma🔋", "Set your max fps in game", 200, 1, function(s)
+    setfpscap(s)
+end)
+
+PlrSection:NewButton("🛠Fix Camera🛠", "", function()
+if game.Players.LocalPlayer.Character then
+        if game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") then
+            game.Workspace.CurrentCamera.CameraSubject = game.Players.LocalPlayer.Character.Humanoid
+        end
+    end
+end)
+
+PlrSection:NewToggle("🌕Day/Night🌑", "ToggleInfo", function(state)
+    if state then
+        local Lighting = game:GetService("Lighting")
+
+Lighting.ClockTime = 0
+    else
+        local Lighting = game:GetService("Lighting")
+
+Lighting.ClockTime = 14
+    end
+end)
+
+PlrSection:NewButton("🔰Fluxus Vuln Patcher🔰", "🔰Fluxus Vuln Patcher🔰", function()
+loadstring(game:HttpGet("https://pastebin.com/raw/Wjwh3j1n"))()
+end)
+
+PlrSection:NewToggle("👁️‍🗨️Hide Hud👁️‍🗨️", "Hiden Hud", function(state)
+    if state then
+        game.CoreGui.TopBarApp.TopBarFrame.Visible = false
+    else
+        game.CoreGui.TopBarApp.TopBarFrame.Visible = true
+    end
+end)
+
+PlrSection:NewSlider("⚡Speed⚡", "Set you speed", 150, 16, function(s)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
+ 
+PlrSection:NewSlider("🔝Jump Power🔝", "Set you JumpPower", 250, 50, function(s)
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
+end)
+
+PlrSection:NewSlider("🔁Fov Changer🔁", "change your fov player", 120, 80, function(s)
+    game.Workspace.CurrentCamera.FieldOfView = s
+end)
+
+PlrSection:NewToggle("♨️OFF Gravity♨️", "ToggleInfo", function(state)
+    if state then
+        game.Workspace.Gravity = 0
+    else
+        game.Workspace.Gravity = 190
+    end
+end)
+
+local PlrSection = PlrTab:NewSection("😎scripters won't be able to fling you😎")
+
+PlrSection:NewButton("✅Antifling ON✅", "Telekinesis (cars and other),", function()
+    _G.AntiFlingToggled = true
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/H20CalibreYT/SystemBroken/main/AntiFling'))()
+end)
+
+PlrSection:NewButton("❌Antifling OFF❌", "Telekinesis (cars and other),", function()
+    _G.AntiFlingToggled = false
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/H20CalibreYT/SystemBroken/main/AntiFling'))()
+end)
+
+local PlrSection = PlrTab:NewSection("💾Save Position And Teleport💾")
+
+PlrSection:NewButton("📩Save Position📩", "", function()
+Babuzina = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
+
+end)
+
+PlrSection:NewButton("📤Teleport Position📤", "", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(Babuzina)
+end)
+
+
+PlrSection:NewToggle("🦸Super-Human🦸", "Go Fast and Jump High", function(state)
+	if state then
+		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 120
+		game.Players.LocalPlayer.Character.Humanoid.JumpPower = 120
+	else
+		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
+		game.Players.LocalPlayer.Character.Humanoid.JumpPower = 50
+	end
+end)
+
+PlrSection:NewButton("✔Tp to click✔ (item)", "Teleport", function()
+    mouse = game.Players.LocalPlayer:GetMouse()
+tool = Instance.new("Tool")
+tool.RequiresHandle = false
+tool.Name = "Click Teleport"
+tool.Activated:connect(function()
+local pos = mouse.Hit+Vector3.new(0,2.5,0)
+pos = CFrame.new(pos.X,pos.Y,pos.Z)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = pos
+end)
+tool.Parent = game.Players.LocalPlayer.Backpack
+end)
+
+PlrSection:NewButton("💢Telekinesis FE💢", "Telekinesis (cars and other),", function()
+    loadstring(game:HttpGet(('https://raw.githubusercontent.com/SAZXHUB/Control-update/main/README.md'),true))()
+end)
+
+
+PlrSection:NewButton("📴Invisibility FE📴", "📴Invisibility📴", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/GhostPlayer352/Test4/main/Invisible%20Gui'))()
+end)
+
+PlrSection:NewButton("🧲Fling All🧲", "🧲Fling All🧲", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/zqyDSUWX"))()
+end)
+
+PlrSection:NewButton("🌫️FullBrightness🌫️", "🌫Invisibility🌫", function()
+    local Light = game:GetService("Lighting")
+ 
+function dofullbright()
+Light.Ambient = Color3.new(1, 1, 1)
+Light.ColorShift_Bottom = Color3.new(1, 1, 1)
+Light.ColorShift_Top = Color3.new(1, 1, 1)
+end
+ 
+dofullbright()
+ 
+Light.LightingChanged:Connect(dofullbright)
+end)
+
+local TargetTab = Window:NewTab("💎Target ++")
+local TargetSection = TargetTab:NewSection("Target")
+
+local Player = game.Players.LocalPlayer
+local function findPlayer(playerName)
+  local players = game.Players:GetPlayers()
+  for _, player in pairs(players) do
+    if string.find(string.lower(player.Name), string.lower(playerName), 1, true) then
+      return player
+    end
+  end
+
+  return nil
+end
+
+local toggleFling = false
+local toggleStand = false
+local toggleView = false
+local toggleBenx = false
+
+local playerName
+local Target
+local DisplayTarget
+
+local function ToggleFling(bool)
+	task.spawn(function()
+		if bool then
+			local RVelocity = nil
+			repeat
+				pcall(function()
+					RVelocity = Player.Character.HumanoidRootPart.Velocity 
+					Player.Character.HumanoidRootPart.Velocity = Vector3.new(math.random(-200,200),-25000,math.random(-200,200))
+					game:GetService("RunService").RenderStepped:wait()
+					Player.Character.HumanoidRootPart.Velocity = RVelocity
+				end)
+				game:GetService("RunService").Heartbeat:wait()
+			until toggleFling == false
+		end
+	end)
+end
+
+local function PlayAnim(id,time,speed)
+	pcall(function()
+		Player.Character.Animate.Disabled = false
+		local hum = Player.Character.Humanoid
+		local animtrack = hum:GetPlayingAnimationTracks()
+		for i,track in pairs(animtrack) do
+			track:Stop()
+		end
+		Player.Character.Animate.Disabled = true
+		local Anim = Instance.new("Animation")
+		Anim.AnimationId = "rbxassetid://"..id
+		local loadanim = hum:LoadAnimation(Anim)
+		loadanim:Play()
+		loadanim.TimePosition = time
+		loadanim:AdjustSpeed(speed)
+		loadanim.Stopped:Connect(function()
+			Player.Character.Animate.Disabled = false
+			for i, track in pairs (animtrack) do
+        		track:Stop()
+    		end
+		end)
+	end)
+end
+
+local function StopAnim()
+	Player.Character.Animate.Disabled = false
+    local animtrack = Player.Character.Humanoid:GetPlayingAnimationTracks()
+    for i, track in pairs (animtrack) do
+        track:Stop()
+    end
+end
+
+local labelTarget = TargetSection:NewLabel("FullName: "..Player.Name.." | DisplayName: "..Player.DisplayName)
+
+TargetSection:NewButton("👆 Click Target 👆","CLick player to select target", function()
+   local GetTargetTool = Instance.new("Tool")
+	GetTargetTool.Name = "ClickTarget"
+	GetTargetTool.RequiresHandle = false
+	GetTargetTool.TextureId = "rbxassetid://2716591855"
+	GetTargetTool.ToolTip = "Select Target"
+
+	local function ActivateTool()
+		local root = Player.Character.HumanoidRootPart
+		local hit = Player:GetMouse().Target
+		local person = nil
+		if hit and hit.Parent then
+			if hit.Parent:IsA("Model") then
+				person = game.Players:GetPlayerFromCharacter(hit.Parent)
+			elseif hit.Parent:IsA("Accessory") then
+				person = game.Players:GetPlayerFromCharacter(hit.Parent.Parent)
+			end
+			if person then
+            Target = person.Name
+            DisplayTarget = person.DisplayName
+            labelTarget:UpdateLabel("FullName: "..Target.." | DisplayName: "..DisplayTarget)
+			end
+		end
+	end
+
+	GetTargetTool.Activated:Connect(function()
+		ActivateTool()
+	end)
+	GetTargetTool.Parent = Player.Backpack
+end)
+
+TargetSection:NewTextBox("🔍 Find Target 🔍", "Enter player to use esp", function(target)
+   playerName = target
+   local similarPlayer = findPlayer(playerName)
+   if similarPlayer then
+      if similarPlayer.Name ~= Player.Name then
+         Target = similarPlayer.Name
+         DisplayTarget = similarPlayer.DisplayName
+         labelTarget:UpdateLabel("FullName: "..Target.." | DisplayName: "..DisplayTarget)
+         local CoreGui = game:GetService("StarterGui")
+         CoreGui:SetCore("SendNotification", {
+             Title = similarPlayer.Name,
+             Text = "Name: "..similarPlayer.DisplayName,
+             Icon = "rbxthumb://type=AvatarHeadShot&id="..Player.Parent[Target].CharacterAppearanceId.."&w=100&h=100",
+             Duration = 5,
+             Callback = AllowRunServiceBind,
+         })
+      end
+   else
+      Target = nil
+      labelTarget:UpdateLabel("Player not found")
+      local CoreGui = game:GetService("StarterGui")
+      CoreGui:SetCore("SendNotification", {
+         Title = "Player not found",
+         Text = "Name: Invalid",
+         Icon = "rbxthumb://type=AvatarHeadShot&id="..Player.CharacterAppearanceId.."&w=100&h=100",
+         Duration = 5,
+         Callback = AllowRunServiceBind,
+      })
+   end
+ end)
+
+local labelTarget = TargetSection:NewLabel("Target Function")
+
+local labelTarget = TargetSection:NewLabel("For All Games")
+
+TargetSection:NewButton("📕 Copy FullName 📕","Копирует полное имя игрока", function()
+   if DisplayTarget ~= nil then 
+      setclipboard(DisplayTarget)
+   end
+end)
+
+TargetSection:NewButton("📒 Copy DisplayName 📒","Копирует дислей имя игрока", function()
+   if Target ~= nil then 
+      setclipboard(Target)
+   end
+end)
+
+TargetSection:NewButton("✔ Teleport Target ✔","Toggle to view player", function()
+   if Target ~= nil then
+      Player.Character.HumanoidRootPart.CFrame = Player.Parent[Target].Character.HumanoidRootPart.CFrame
+   end
+end)
+
+TargetSection:NewButton("👁️ View Target 👁️","Toggle to view player", function()
+   if toggleView == false then
+      if Target ~= nil then
+         toggleView = true
+         game.Workspace.CurrentCamera.CameraSubject = Player.Parent[Target].Character.Humanoid
+      end
+   else
+      toggleView = false
+      game.Workspace.CurrentCamera.CameraSubject = Player.Character.Humanoid
+   end
+end)
+
+TargetSection:NewButton("🧲 Fling Target 🧲","Toggle to fling player", function()
+   if toggleFling == false then
+      if Target ~= nil then
+         toggleFling = true
+         local OldPos = Player.Character.HumanoidRootPart.Position
+			ToggleFling(true)
+			repeat 
+            task.wait()
+				pcall(function()
+					Player.Character.HumanoidRootPart.CFrame = Player.Parent[Target].Character.HumanoidRootPart.CFrame
+				end)
+				task.wait()
+			until toggleFling == false
+			Player.Character.HumanoidRootPart.CFrame = OldPos
+         ToggleFling(false)
+      end
+   else
+      toggleFling = false
+   end
+end)
+
+
+TargetSection:NewButton("👥 Stand Head Target 👥","Toggle to stand head your player", function()
+   if toggleBenx == false then
+      if Target ~= nil then
+         toggleBenx = true
+         PlayAnim(591872667,0,1)
+         repeat
+            pcall(function()
+               local root = Player.Parent[Target].Character.HumanoidRootPart
+               Player.Character.HumanoidRootPart.CFrame = root.CFrame * CFrame.new(0,5,0.0)
+               Player.Character.HumanoidRootPart.Velocity = Vector3.new(0,0,0)
+            end)
+            task.wait()
+         until toggleBenx == false
+         StopAnim()
+      end
+   else
+      toggleBenx = false
+   end
+end)
+
+
+
+TargetSection:NewButton("🛶 Platform Player Target 🛶","Toggle to platform player", function()
+   if toggleBenx == false then
+   if Target ~= nil then
+      toggleBenx = true
+      PlayAnim(59126674,0,1)
+      repeat
+         pcall(function()
+            local root = Player.Parent[Target].Character.HumanoidRootPart
+            Player.Character.HumanoidRootPart.CFrame = root.CFrame * CFrame.new(0,-2,0)
+            Player.Character.HumanoidRootPart.Velocity = Vector3.new(0,0,0)
+            -- Поворот на 90 градусов по часовой стрелке
+            Player.Character.HumanoidRootPart.CFrame = Player.Character.HumanoidRootPart.CFrame * CFrame.Angles(1.58, math.rad(0), 0)
+         end)
+         task.wait()
+      until toggleBenx == false
+      StopAnim()
+   end
+else
+   toggleBenx = false
+end
+end)
+
+TargetSection:NewButton("⚔️ Kill Player Target ⚔️","Toggle to platform player", function()
+   if not game:IsLoaded() then
+    game.Loaded:wait()
+end
+
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+local PopperClient = LocalPlayer:WaitForChild("PlayerScripts").PlayerModule.CameraModule.ZoomController.Popper
+
+for i, v in next, getgc() do
+    if getfenv(v).script == PopperClient and typeof(v) == "function" then
+        for i2, v2 in next, debug.getconstants(v) do
+            if tonumber(v2) == 0.25 then
+                debug.setconstant(v, i2, 0)
+            elseif tonumber(v2) == 0 then
+                debug.setconstant(v, i2, 0.25)
+            end
+        end
+    end
+end
+
+if toggleBenx == false then
+   if Target ~= nil then
+      toggleBenx = true
+      PlayAnim(59126674,0,1)
+      repeat
+         pcall(function()
+            local root = Player.Parent[Target].Character.HumanoidRootPart
+            Player.Character.HumanoidRootPart.CFrame = root.CFrame * CFrame.new(0,-4.7,0)
+            Player.Character.HumanoidRootPart.Velocity = Vector3.new(0,0,0)
+            -- Поворот на 90 градусов по часовой стрелке
+            Player.Character.HumanoidRootPart.CFrame = Player.Character.HumanoidRootPart.CFrame * CFrame.Angles(1.58, math.rad(0), 0)
+         end)
+         task.wait()
+      until toggleBenx == false
+      StopAnim()
+   end
+else
+   toggleBenx = false
+end
+end)
+
+local labelTarget = TargetSection:NewLabel("R15 Target")
+
+
+TargetSection:NewButton("👤 Stand Target (R15) 👤","Toggle to stand player", function()
+   if toggleStand == false then
+      if Target ~= nil then
+         toggleStand = true
+         PlayAnim(13823324057,4,0)
+         repeat
+            pcall(function()
+               local root = Player.Parent[Target].Character.HumanoidRootPart
+               Player.Character.HumanoidRootPart.CFrame = root.CFrame * CFrame.new(-3,1,0)
+               Player.Character.HumanoidRootPart.Velocity = Vector3.new(0,0,0)
+            end)
+            task.wait()
+         until toggleStand == false
+         StopAnim()
+      end
+   else
+      toggleStand = false
+   end
+end)
+
+TargetSection:NewButton("👤 Stand Target V2 (R15) 👤","Toggle to stand player", function()
+   if toggleStand == false then
+      if Target ~= nil then
+         toggleStand = true
+         PlayAnim(10714389396,1,0)
+         repeat
+            pcall(function()
+               local root = Player.Parent[Target].Character.HumanoidRootPart
+               Player.Character.HumanoidRootPart.CFrame = root.CFrame * CFrame.new(-3.5,0,0.5)
+               Player.Character.HumanoidRootPart.Velocity = Vector3.new(0,0,0)
+            end)
+            task.wait()
+         until toggleStand == false
+         StopAnim()
+      end
+   else
+      toggleStand = false
+   end
+end)
+
+
+TargetSection:NewButton("👤 Stand Target V3 (R15) 👤","Toggle to stand player", function()
+   if toggleStand == false then
+      if Target ~= nil then
+         toggleStand = true
+         PlayAnim(12507085924,5,0)
+         repeat
+            pcall(function()
+               local root = Player.Parent[Target].Character.HumanoidRootPart
+               Player.Character.HumanoidRootPart.CFrame = root.CFrame * CFrame.new(-3.5,3,0)
+               Player.Character.HumanoidRootPart.Velocity = Vector3.new(0,0,0)
+            end)
+            task.wait()
+         until toggleStand == false
+         StopAnim()
+      end
+   else
+      toggleStand = false
+   end
+end)
+
+
+
+TargetSection:NewButton("👤 Stand Target V4 (R15) 👤","Toggle to stand player", function()
+   if toggleStand == false then
+      if Target ~= nil then
+         toggleStand = true
+         PlayAnim(10714347256,4,0)
+         repeat
+            pcall(function()
                local root = Player.Parent[Target].Character.HumanoidRootPart
                Player.Character.HumanoidRootPart.CFrame = root.CFrame * CFrame.new(-3.5,1,1)
                Player.Character.HumanoidRootPart.Velocity = Vector3.new(0,0,0)
@@ -3418,7 +3998,6 @@ local OthersTab = Window:NewTab("For Games")
 local OthersSection = OthersTab:NewSection("For Games")
 
 
-
 OthersSection:NewButton("⚫Wyvern (FOR ALL)⚫", "", function()
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/wyvernleaker/WYVERN/main/WYVERN.lua",true))()
@@ -3508,20 +4087,6 @@ OthersSection:NewButton("🦔Pet Simulator 99🦔", "", function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Muhammad6196/Tests/main/wd_Arise/loader.lua"))()
 end)
 
-local CreatorTab = Window:NewTab("ℹ️Infoℹ️")
-
-local CreatorSection = CreatorTab:NewSection("Credits to Avtor1zaTion")
-local CreatorSection = CreatorTab:NewSection("Version 2.1")
-
-CreatorSection:NewButton("Copy YT Avtor Scripts Link", "Youtube Avtor Scripts", function()
-
-setclipboard("https://youtube.com/@avtorscripts?si=Pbp9QsfrcDZ5b-nO")
-end)
-CreatorSection:NewButton("Copy TG Avtor Scripts Link", "Telegram Avtor Scripts", function()
-
-setclipboard("https://t.me/AvtorScripts")
-end)
-
 wait(0.1)
 
 local stroke = Instance.new("UIStroke")
@@ -3530,4 +4095,3 @@ stroke.Thickness = 3
 while wait() do local hue = tick() % 15 / 15
  local color = Color3.fromHSV(hue,1,1)     stroke.Color = color
 end
-
